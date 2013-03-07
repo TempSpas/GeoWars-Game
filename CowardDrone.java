@@ -6,13 +6,13 @@ import java.awt.Color;
 
 public class CowardDrone extends Drone
 {
-    private int pointValue;
+	//private int pointValue;
 	
 	public CowardDrone(ActorWorld w)
 	{
-		super(w);
+		super(w, 150);
 		setColor(Color.GREEN);
-		pointValue = 150;
+		//pointValue = 150;
 	}
 	
 	public void checkLasers()
