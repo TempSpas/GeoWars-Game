@@ -1,4 +1,5 @@
-GeoWars-Game
+GeoWars Game
 ============
 
-AP Computer Science Project
+AP Computer Science Project using GridWorld
+by Nicolaas Verbeek.
