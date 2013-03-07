@@ -5,8 +5,8 @@ import info.gridworld.grid.Location;
 
 public class Drone extends Actor
 {
-  private int pointValue;
-  public ActorWorld world;
+ 	private int pointValue;
+	public ActorWorld world;
 
 	public Drone(ActorWorld w)
 	{
