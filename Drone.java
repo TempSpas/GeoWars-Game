@@ -14,6 +14,12 @@ public class Drone extends Actor
 		pointValue = 50;
 		world = w;
 	}
+	
+	public Drone(ActorWorld w, int p)
+	{
+		pointValue = p;
+		world = w;
+	}
 
 	public void act()
 	{
