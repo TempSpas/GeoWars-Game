@@ -15,8 +15,8 @@ import info.gridworld.grid.Location;
 
 public class PacifistShip extends Actor implements KeyboardControllable
 {
-  private int lives;
-  private int bombs;
+	private int lives;
+	private int bombs;
 	private int scoreMultiplier;
 	private boolean isInvincible;
 	private int invincibleCounter;
