@@ -1,6 +1,6 @@
 public class LeaderboardEntry implements Comparable<LeaderboardEntry>
 {
-  private String initials;
+  	private String initials;
 	private int score;
 	
 	public LeaderboardEntry()
