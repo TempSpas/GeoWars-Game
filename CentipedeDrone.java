@@ -5,7 +5,7 @@ import info.gridworld.grid.Location;
 
 public class CentipedeDrone extends Drone
 {
-  public CentipedeDrone(ActorWorld w)
+ 	public CentipedeDrone(ActorWorld w)
 	{
 		super(w, 100);
 		setColor(Color.RED);
