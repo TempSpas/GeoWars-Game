@@ -36,16 +36,16 @@ public class Drone extends Actor
 		else if(gr.get(next) instanceof Laser)
 		{
 			gr.get(next).removeSelfFromGrid();
-			die(/*getPointValue()*/);
+			die();
 		}
 		else if(canMove())
 			move();
 	}
 
-	public void die(/*int p*/)
+	public void die()
 	{
 		Grid<Actor> gr = getGrid();
-		world.setScore(world.getScore()+/*p*/(getPointValue()*
+		world.setScore(world.getScore()+(getPointValue()*
 				((PacifistShip)(gr.get(trackPlayer()))).getScoreMultiplier()));
 		this.removeSelfFromGrid();
 	}
