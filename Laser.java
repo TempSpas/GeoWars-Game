@@ -4,7 +4,7 @@ import info.gridworld.grid.Location;
 
 public class Laser extends Actor
 {
-  private int direction;
+  	private int direction;
 	
 	public Laser()
 	{
