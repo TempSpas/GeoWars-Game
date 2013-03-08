@@ -5,7 +5,7 @@ import info.gridworld.grid.Location;
 
 public class Gate extends Actor
 {
-  private int count;
+	private int count;
 
 	public Gate()
 	{
