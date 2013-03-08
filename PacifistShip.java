@@ -209,9 +209,7 @@ public class PacifistShip extends Actor implements KeyboardControllable
 		}
 		else
 		{
-			//System.exit(0);
-			//There has to be a way to cancel the GridWorld window from working
-
+			world.getFrame().dispose();
 			JOptionPane.showMessageDialog(null, "GAME OVER");
 			leaderboard();
 		}
