@@ -7,17 +7,30 @@ public class CentipedeDrone extends Drone
 {
  	public CentipedeDrone(ActorWorld w)
 	{
-		super(w, 100);
+		super(w, 150);
 		setColor(Color.RED);
 	}
 
 	public void act()
 	{
 		//super.act();
+		int count = 0;
 		if(canMove())
 			move();
-		else
+		/*else
 			turn();
+		else if(count = 0){
+			turn()
+			count++;
+		}*/
+		else switch(count)
+		{
+			case 0: turn(); count++; break;
+			case 1: turn(); count++; break;
+			case 2: move(); count++; break;
+			case 3: turn(); count++; break;
+			case 4: turn(); count = 0; break;
+		}
 	}
 
 	public void turn()
