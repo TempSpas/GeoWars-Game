@@ -5,24 +5,20 @@ import info.gridworld.grid.Location;
 
 public class CentipedeDrone extends Drone
 {
+ 	private int turnCounter;
+ 	
  	public CentipedeDrone(ActorWorld w)
 	{
 		super(w, 150);
 		setColor(Color.RED);
+		turnCounter = 0;
 	}
 
 	public void act()
 	{
-		//super.act();
 		int count = 0;
-		if(canMove())
+		if(canMove() && turnCounter == 0)
 			move();
-		/*else
-			turn();
-		else if(count = 0){
-			turn()
-			count++;
-		}*/
 		else switch(count)
 		{
 			case 0: turn(); count++; break;
