@@ -42,8 +42,7 @@ public class Gate extends Actor
 			{
 				Location check = new Location(r,c);
 				//IF TAIL EXTENDS DRONE, MODIFY THIS
-				if(gr.isValid(check) && ((gr.get(check) instanceof Drone) ||
-						(gr.get(check) instanceof CentipedeTail)))
+				if(gr.isValid(check) && gr.get(check) instanceof Drone)
 					targets.add(gr.get(check));
 			}
 		}
