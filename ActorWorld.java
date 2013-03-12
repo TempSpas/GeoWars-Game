@@ -91,7 +91,40 @@ public class ActorWorld extends World<Actor>
         	this.add(randLoc, new Invincibility());
         else this.add(randLoc, new Gate());
         //End Spawn System
-    }
+   }
+
+	private void hardSpawn(Location loc)
+	{
+		int chance = (int)(Math.random()*100+1)
+		if(chance <= 99)
+		{
+			int randEnemy = (int)(Math.random()*100+1)
+			if(randEnemy <= 70)
+				this.add(loc, new Drone(this));
+			else if(randEnemy > 70 && randEnemy <= 90)
+				this.add(loc, new CentipedeDrone(this));
+			else this.add(loc, new CowardDrone(this);
+		}
+	}
+	
+	private void powerUpSpawn(loc)
+	{
+		int chance = (int)(Math.random()*100+1)
+		if(chance <= 30)
+		{
+			int randPowerUp (int)(Math.random()*100+1)
+			if(randPowerUp <= 60)
+				this.add(loc, new ExtraPoint());
+			else if(randPowerUp > 60 && randPowerUp <= 80)
+				this.add(loc, new Gate());
+			else if(randPowerUp > 80 && randPowerUp <= 90)
+				this.add(loc, new ExtraBomb());
+			else if(randPowerUp > 90 && randPowerUp <= 95)
+				this.add(loc, new ExtraLife());
+			else this.add(loc, new Invincibility());
+		}
+	}
+
     
     private Location getRandomGoodLocation()
     {
