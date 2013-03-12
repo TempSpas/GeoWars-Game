@@ -41,13 +41,31 @@ public class Gate extends Actor
 			for(int c = loc.getCol()-3; c <= loc.getCol()+3; c++)
 			{
 				Location check = new Location(r,c);
+				//IF TAIL EXTENDS DRONE, MODIFY THIS
 				if(gr.isValid(check) && ((gr.get(check) instanceof Drone) ||
-						(gr.get(check) instanceof CentipedeTail)))/* && !(gr.get(check) instanceof Gate)
-					&& !(gr.get(check) instanceof SpaceDebris) && !(gr.get(check) instanceof PowerUp))*/
+						(gr.get(check) instanceof CentipedeTail)))
 					targets.add(gr.get(check));
 			}
 		}
 		return targets;
+	}
+	
+	//Makes recursive calls to obtain all enemies behind the player ship
+	public ArrayList<Actor> recursiveGetTargets(int direction, Location loc)
+	{
+		Grid<Actor> gr = getGrid();
+		ArrayList<Actor> targets = new ArrayList<Actor>();
+		//Location loc = this.getLocation();
+		
+		Location behind = getAdjacentLocation(direction);
+		if (gr.isValid(behind))
+		{
+			if(gr.get(behind) instanceof Drone)
+				targets.add(gr.get(behind));
+			recursiveGetTargets(direction, behind);
+		}
+		//Probably going to have to change this in some way
+		else return targets;
 	}
 
 	public void detonate(int direction)
