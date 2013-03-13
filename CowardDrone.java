@@ -77,5 +77,9 @@ public class CowardDrone extends Drone
 	public void act()
 	{
 		checkLasers();
+		int chance = (int)(Math.random()*2+1)
+		if (chance == 1)
+			move();
+		else;
 	}
 }
