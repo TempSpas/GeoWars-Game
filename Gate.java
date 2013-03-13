@@ -28,8 +28,6 @@ public class Gate extends Actor
 		setDirection(getDirection() + Location.HALF_RIGHT);
 	}
 
-	//If this wipes everything behind it, there has to be a
-	//recursive method involved.
 	public ArrayList<Actor> getDetonateTargets(int direction)
 	{
 		Grid<Actor> gr = getGrid();
@@ -41,7 +39,6 @@ public class Gate extends Actor
 			for(int c = loc.getCol()-3; c <= loc.getCol()+3; c++)
 			{
 				Location check = new Location(r,c);
-				//IF TAIL EXTENDS DRONE, MODIFY THIS
 				if(gr.isValid(check) && gr.get(check) instanceof Drone)
 					targets.add(gr.get(check));
 			}
@@ -63,7 +60,6 @@ public class Gate extends Actor
 				targets.add(gr.get(behind));
 			recursiveGetTargets(direction, behind);
 		}
-		//Probably going to have to change this in some way
 		else return targets;
 	}
 
