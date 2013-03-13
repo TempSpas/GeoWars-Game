@@ -17,7 +17,7 @@ import javax.swing.JTextArea;
 
 public class GameRunner
 {
-  public static void testMethod()
+	public static void testMethod()
 	{
 		//ActorWorld world = new ActorWorld(new BoundedGrid<Actor>(10,10));
 		KeyWorld world = new KeyWorld(new BoundedGrid<Actor>(15,20));
@@ -92,8 +92,8 @@ public class GameRunner
 		area.setRows(35);
 		area.setColumns(100);
 		JScrollPane pane = new JScrollPane(area);
-		JOptionPane.showMessageDialog(null,pane);	
-
+		JOptionPane.showMessageDialog(null,pane);
+		menu();
 	}
 	//***********END
 	
@@ -105,26 +105,27 @@ public class GameRunner
 		return choice;
 	}
 	
-	public static void main(String[] args)
-	{	
-		//changeJOP();
-		
-		int choice = menu();
-		//do
-		//{
-			/*choice = JOptionPane.showOptionDialog(null,
-					"Welcome to the game. Choose a mode:","Main Menu",0,3,null,options1,null);*/
-		switch(choice)
-		{
-		case 0: testMethod(); break;//code
-		case 1: pacifistRunner(); break;
-		case 2: JOptionPane.showMessageDialog(null, "Controls: Arrow keys control movement, " +
+	public static void instructions()
+	{
+		JOptionPane.showMessageDialog(null, "Controls: Arrow keys control movement, " +
 				"WASD control shooting. Bomb with space." + 
 				"\n\nRetro Mode: Classic space shooter. Pilot your ship" +
 				" and shoot multiple types of drones to obtain the high score.\n" +
 				"\nPacifism: " +
 				"Encounter only normal drones. You cannot fire bullets; your score " +
-		"relies entirely on gates and bombs."); break;
+				"relies entirely on gates and bombs.");
+		menu();
+	}
+	
+	public static void main(String[] args)
+	{
+		int choice = menu();
+		
+		switch(choice)
+		{
+		case 0: testMethod(); break;
+		case 1: pacifistRunner(); break;
+		case 2: instructions(); break;
 		case 3:
 		{
 			ArrayList<LeaderboardEntry> lb = new ArrayList<LeaderboardEntry>();
@@ -133,6 +134,5 @@ public class GameRunner
 		} break;
 		case 4: System.exit(0);
 		}
-		//}while(choice != 0 || choice != 1);
 	}
 }
