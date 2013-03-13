@@ -56,7 +56,7 @@ public class Gate extends Actor
 		ArrayList<Actor> targets = new ArrayList<Actor>();
 		//Location loc = this.getLocation();
 		
-		Location behind = getAdjacentLocation(direction);
+		Location behind = getAdjacentLocation(direction + 180);
 		if (gr.isValid(behind))
 		{
 			if(gr.get(behind) instanceof Drone)
@@ -70,7 +70,10 @@ public class Gate extends Actor
 	public void detonate(int direction)
 	{
 		ArrayList<Actor> targets = getDetonateTargets(direction + 180);
+		ArrayList<Actor> backTargets = recursiveGetTargets(direction + 180);
 		for(Actor a : targets)
+			((Drone)(a)).die();
+		for(Actor b: backTargets)
 			((Drone)(a)).die();
 		removeSelfFromGrid();
 	}
