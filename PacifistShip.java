@@ -1,4 +1,3 @@
-//import java.awt.Color;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.PrintWriter;
@@ -7,9 +6,6 @@ import java.util.Scanner;
 
 import javax.swing.JOptionPane;
 import info.gridworld.actor.Actor;
-//import info.gridworld.actor.Bug;
-//import info.gridworld.actor.Critter;
-//import info.gridworld.actor.Flower;
 import info.gridworld.grid.Grid;
 import info.gridworld.grid.Location;
 
@@ -96,7 +92,7 @@ public class PacifistShip extends Actor implements KeyboardControllable
 		}
 		else if(gr.get(next) instanceof Gate)
 		{
-			((Gate)(gr.get(next))).detonate(this.getDirection());
+			((Gate)(gr.get(next))).detonate(this.getDirection(), this.getLocation());
 			moveTo(next);
 		}
 		else if(gr.isValid(next))
@@ -158,8 +154,7 @@ public class PacifistShip extends Actor implements KeyboardControllable
 			for(int c = loc.getCol()-2; c <= loc.getCol()+2; c++)
 			{
 				Location check = new Location(r,c);
-				if(gr.isValid(check) && (gr.get(check) instanceof Drone)/* &&
-					!(gr.get(check) instanceof PacifistShip)*/)
+				if(gr.isValid(check) && (gr.get(check) instanceof Drone))
 					targets.add(gr.get(check));
 			}
 		}
