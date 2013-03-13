@@ -27,8 +27,9 @@ public class Gate extends Actor
 	{
 		setDirection(getDirection() + Location.HALF_RIGHT);
 	}
-
-	public ArrayList<Actor> getDetonateTargets(int direction)
+	//If this wipes everything behind it, there has to be a
+	//recursive method involved.
+	public ArrayList<Actor> getDetonateTargets()
 	{
 		Grid<Actor> gr = getGrid();
 		ArrayList<Actor> targets = new ArrayList<Actor>();
@@ -45,32 +46,40 @@ public class Gate extends Actor
 		}
 		return targets;
 	}
-	
+
 	//Makes recursive calls to obtain all enemies behind the player ship
 	public ArrayList<Actor> recursiveGetTargets(int direction, Location loc)
 	{
 		Grid<Actor> gr = getGrid();
-		ArrayList<Actor> targets = new ArrayList<Actor>();
+		ArrayList<Actor> backTargets = new ArrayList<Actor>();
 		//Location loc = this.getLocation();
-		
-		Location behind = getAdjacentLocation(direction + 180);
+
+		Location behind = loc.getAdjacentLocation(direction);
+		System.out.println(behind);
 		if (gr.isValid(behind))
 		{
-			if(gr.get(behind) instanceof Drone)
-				targets.add(gr.get(behind));
+			if(gr.get(behind) instanceof Drone){
+				backTargets.add(gr.get(behind));
+				System.out.println(gr.get(behind));
+			}
 			recursiveGetTargets(direction, behind);
 		}
-		else return targets;
+		
+		return backTargets;
 	}
 
-	public void detonate(int direction)
+	public void detonate(int direction, Location loc)
 	{
-		ArrayList<Actor> targets = getDetonateTargets(direction + 180);
-		ArrayList<Actor> backTargets = recursiveGetTargets(direction + 180);
-		for(Actor a : targets)
+		ArrayList<Actor> targets = getDetonateTargets();
+		ArrayList<Actor> backTargets = recursiveGetTargets(direction + 180, loc);
+		for(Actor a : targets){
+			System.out.println(a);
 			((Drone)(a)).die();
-		for(Actor b: backTargets)
-			((Drone)(a)).die();
+		}
+		for(Actor b : backTargets){
+			System.out.println(b);
+			((Drone)(b)).die();
+		}
 		removeSelfFromGrid();
 	}
 }
