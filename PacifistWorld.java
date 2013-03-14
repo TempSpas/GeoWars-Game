@@ -1,7 +1,7 @@
 public class PacifistWorld extends KeyWorld
 {
-  private void enemySpawn(Location loc)
-  {
+  	private void enemySpawn(Location loc)
+  	{
 		int chance = (int)(Math.random()*100+1)
 		if(chance <= 99)
 		{
