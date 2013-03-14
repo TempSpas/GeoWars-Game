@@ -62,7 +62,7 @@ public class Gate extends Actor
 				backTargets.add(gr.get(behind));
 				System.out.println(gr.get(behind));
 			}
-			backtargets.addAll(recursiveGetTargets(direction, behind);
+			backTargets.addAll(recursiveGetTargets(direction, behind);
 			//recursiveGetTargets(direction, behind);
 		}
 		
