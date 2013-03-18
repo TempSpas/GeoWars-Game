@@ -151,12 +151,20 @@ public class GameRunner {
 
 	public static void instructions() {
 		JOptionPane.showMessageDialog(null,"Controls: Arrow keys control movement, "
-						+ "WASD control shooting. Bomb with space."
-						+ "\n\nRetro Mode: Classic space shooter. Pilot your ship"
-						+ " and shoot multiple types of drones to obtain the high score.\n"
-						+ "\nPacifism: "
-						+ "Encounter only normal drones. You cannot fire bullets; your score "
-						+ "relies entirely on gates and bombs.");
+				+ "WASD control shooting. Bomb with the space bar.\n\n"
+				+ "Drone Types:\n\t-Blue: Tracks your movements and follows"
+				+ "\n\t-Red: Cenitpede; traverses columns"
+				+ "\n\t-Gree: Coward: Evades lasers unless point blank"
+				+ "\n\nPower-Ups:\n"
+				+ "\t-Star: Grants 10 turns of invinciblity, albeit for no points"
+				+ "\n\t-Extra Bomb/Points/Life: Self-explanatory ~_~"
+				+ "\n\t-Gate: Small portal that removes all enemies within a radius larger than" +
+					" the normal bomb's as well as\n\tall enemies in the row behind you."
+				+ "\n\nRetro Mode: Classic space shooter. Pilot your ship"
+				+ " and shoot multiple types of drones to obtain the high score.\n"
+				+ "\nPacifism: "
+				+ "Encounter only blue drones. You cannot fire bullets; your score "
+				+ "relies entirely on gates and bombs.");
 		//menu();
 	}
 	
